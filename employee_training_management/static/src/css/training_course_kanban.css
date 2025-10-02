@@ -1,0 +1,11 @@
+.o_kanban_record.state_draft {
+    background-color: #f8d7da; /* Light red */
+}
+
+.o_kanban_record.state_confirmed {
+    background-color: #fff3cd; /* Light yellow */
+}
+
+.o_kanban_record.state_done {
+    background-color: #d4edda; /* Light green */
+}

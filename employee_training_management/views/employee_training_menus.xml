@@ -1,0 +1,23 @@
+<odoo>
+    <!-- Main App Menu -->
+    <menuitem id="employee_training_root"
+              name="Employee Training"
+              web_icon="employee_training_management,static/description/icon.png"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_training_courses"
+              name="Training Courses"
+              parent="employee_training_root"
+              action="employee_training_management.action_training_courses"/>
+
+    <menuitem id="menu_training_trainers"
+              name="Trainers"
+              parent="employee_training_root"
+              action="employee_training_management.action_training_trainers"/>
+
+    <menuitem id="menu_training_attendance"
+          name="Attendance Records"
+          parent="employee_training_root"
+          action="employee_training_management.action_training_attendance"/>
+
+</odoo>

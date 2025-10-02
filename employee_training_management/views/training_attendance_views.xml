@@ -1,0 +1,78 @@
+<odoo>
+    <!-- Attendance List View -->
+    <record id="view_training_attendance_list" model="ir.ui.view">
+        <field name="name">training.attendance.list</field>
+        <field name="model">training.attendance</field>
+        <field name="arch" type="xml">
+            <list string="Attendance Records">
+                <field name="employee_id"/>
+                <field name="training_id"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Attendance Form View -->
+    <record id="view_training_attendance_form" model="ir.ui.view">
+        <field name="name">training.attendance.form</field>
+        <field name="model">training.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Training Attendance">
+                <sheet>
+                    <group>
+                        <field name="training_id"
+                               options="{'no_create': True}"
+                               context="{'default_state': 'draft'}"/>
+                        <field name="employee_id"
+                               options="{'no_create': False}"
+                               context="{'default_employee': True}"/>
+                        <field name="status"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Attendance Search View -->
+    <record id="view_training_attendance_search" model="ir.ui.view">
+        <field name="name">training.attendance.search</field>
+        <field name="model">training.attendance</field>
+        <field name="arch" type="xml">
+            <search string="Search Attendance">
+                <field name="employee_id"/>
+                <field name="training_id"/>
+                <field name="status"/>
+
+                <!-- Filters -->
+                <filter string="Attended" name="attended" domain="[('status','=','attended')]"/>
+                <filter string="Absent" name="absent" domain="[('status','=','absent')]"/>
+
+                <!-- Group By -->
+                <group expand="1" string="Group By">
+                    <filter string="Training" name="group_training" context="{'group_by':'training_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Attendance -->
+    <record id="action_training_attendance" model="ir.actions.act_window">
+        <field name="name">Attendance Records</field>
+        <field name="res_model">training.attendance</field>
+        <field name="view_mode">list,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new attendance record
+            </p>
+        </field>
+    </record>
+
+<!--    &lt;!&ndash; Menu Item &ndash;&gt;-->
+<!--    <menuitem id="menu_training_attendance" name="Attendance Records"-->
+<!--              parent="menu_employee_training"-->
+<!--              action="action_training_attendance"/>-->
+</odoo>
