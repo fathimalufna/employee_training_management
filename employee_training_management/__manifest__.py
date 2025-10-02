@@ -1,5 +1,6 @@
 {
-    'name': 'Employee Training',
+    'name': 'Employee Training module',
+
     'version': '1.0.0',
     'license': 'LGPL-3',
     'summary': 'Manage employee training courses, trainers and attendance',
